@@ -1,59 +1,124 @@
 ﻿using JogoDaVelha.Core.Enums;
 using JogoDaVelha.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Teste.JogoDaVelha.Core.BaseTest;
 using Xunit;
 
 namespace Teste.JogoDaVelha.Core
 {
-    public class TesteVerificacoesSeGanhou
-    {
-
-        private readonly List<Jogada> jogadasRetornaVerdadeiro;
-        private readonly List<Jogada> jogadasRetornaFalso;
-
-        public TesteVerificacoesSeGanhou()
+    public class TesteVerificacoesSeGanhou: TesteVerificacoesSeGanhouBase
+    {        
+        [Fact]
+        [Trait("Verificacões:","Horizontais")]
+        public void DeveRetornarVerdadeiroNasHorizontais()
         {
-            jogadasRetornaVerdadeiro = new List<Jogada>();
-            jogadasRetornaFalso = new List<Jogada>();
-            var jogada1 = new JogadaPosicao1(1, Jogador.Humano,"x");
-            var jogada2 = new JogadaPosicao2(3, Jogador.Humano, "x");
-            jogadasRetornaVerdadeiro.Add(jogada1);
-            jogadasRetornaVerdadeiro.Add(jogada2);
-            jogadasRetornaFalso.Add(jogada1);
+            //arrange
+            var jogadaAtualNaHorizontal1 = new JogadaPosicao3(5, Jogador.Humano);
+            var jogadaAtualNaHorizontal2 = new JogadaPosicao6(6, Jogador.Humano);
+            var jogadaAtualNaHorizontal3 = new JogadaPosicao9(9, Jogador.Maquina);
+
+            //act
+            var resultadoH1 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasHorizontais, jogadaAtualNaHorizontal1, LinhaDeVerificacao.Horizontal_1);
+            var resultadoH2 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasHorizontais, jogadaAtualNaHorizontal2, LinhaDeVerificacao.Horizontal_2);
+            var resultadoH3 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasHorizontais, jogadaAtualNaHorizontal3, LinhaDeVerificacao.Horizontal_3);
+
+            //assert
+            Assert.True(resultadoH1);
+            Assert.True(resultadoH2);
+            Assert.True(resultadoH3);
         }
 
         [Fact]
-        [Trait("Verificacões:","Horizontal1 - Verdadeiro")]
-        public void DeveRetornarVerdadeiroVerificaSeGanhouNasHorizontais()
+        [Trait("Verificacões:", "Horizontais")]
+        public void DeveRetornarFalsoNasHorizontais()
         {
             //arrange
-            var verificacaoHorizontais = new VerificacoesSeGanhou();
-            var jogadaAtual = new JogadaPosicao3(5, Jogador.Humano, "x");
+            var jogadaAtualNaHorizontal1 = new JogadaPosicao3(5, Jogador.Maquina);
+            var jogadaAtualNaHorizontal2 = new JogadaPosicao6(6, Jogador.Maquina);
+            var jogadaAtualNaHorizontal3 = new JogadaPosicao9(9, Jogador.Humano);
 
             //act
-            var resultado = verificacaoHorizontais.VerificaSeGanhouHorizontal1(jogadasRetornaVerdadeiro, jogadaAtual);
+            var resultadoH1 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasHorizontais, jogadaAtualNaHorizontal1, LinhaDeVerificacao.Horizontal_1);
+            var resultadoH2 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasHorizontais, jogadaAtualNaHorizontal2, LinhaDeVerificacao.Horizontal_2);
+            var resultadoH3 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasHorizontais, jogadaAtualNaHorizontal3, LinhaDeVerificacao.Horizontal_3);
 
             //assert
-            Assert.True(resultado);
+            Assert.False(resultadoH1);
+            Assert.False(resultadoH2);
+            Assert.False(resultadoH3);
         }
 
         [Fact]
-        [Trait("Verificacões:", "Horizontal1 - Falso")]
-        public void DeveRetornarFalsoVerificaSeGanhouNasHorizontais()
+        [Trait("Verificacões:", "Verticais")]
+        public void DeveRetornarVerdadeiroNasVerticais()
         {
             //arrange
-            var verificacaoHorizontais = new VerificacoesSeGanhou();
-            var jogadaAtual = new JogadaPosicao3(5, Jogador.Humano, "x");
+            var jogadaAtualNaVertical1 = new JogadaPosicao7(8, Jogador.Maquina);
+            var jogadaAtualNaVertical2 = new JogadaPosicao8(7, Jogador.Humano);
+            var jogadaAtualNaVertical3 = new JogadaPosicao9(9, Jogador.Humano);
 
             //act
-            var resultado = verificacaoHorizontais.VerificaSeGanhouHorizontal1(jogadasRetornaFalso, jogadaAtual);
+            var resultadoH1 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasVerticais, jogadaAtualNaVertical1, LinhaDeVerificacao.Vertical_1);
+            var resultadoH2 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasVerticais, jogadaAtualNaVertical2, LinhaDeVerificacao.Vertical_2);
+            var resultadoH3 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasVerticais, jogadaAtualNaVertical3, LinhaDeVerificacao.Vertical_3);
 
             //assert
-            Assert.False(resultado);
+            Assert.True(resultadoH1);
+            Assert.True(resultadoH2);
+            Assert.True(resultadoH3);
+        }
+
+        [Fact]
+        [Trait("Verificacões:", "Verticais")]
+        public void DeveRetornarFalsoNasVerticais()
+        {
+            //arrange
+            var jogadaAtualNaVertical1 = new JogadaPosicao7(8, Jogador.Humano);
+            var jogadaAtualNaVertical2 = new JogadaPosicao8(7, Jogador.Maquina);
+            var jogadaAtualNaVertical3 = new JogadaPosicao9(9, Jogador.Maquina);
+
+            //act
+            var resultadoH1 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasVerticais, jogadaAtualNaVertical1, LinhaDeVerificacao.Vertical_1);
+            var resultadoH2 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasVerticais, jogadaAtualNaVertical2, LinhaDeVerificacao.Vertical_2);
+            var resultadoH3 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasVerticais, jogadaAtualNaVertical3, LinhaDeVerificacao.Vertical_3);
+
+            //assert
+            Assert.False(resultadoH1);
+            Assert.False(resultadoH2);
+            Assert.False(resultadoH3);
+        }
+
+        [Fact]
+        [Trait("Verificacões:", "Diagonais")]
+        public void DeveRetornarVerdadeiroNasDiagonais()
+        {
+            //arrange
+            var jogadaAtual1 = new JogadaPosicao9(8, Jogador.Humano);
+            var jogadaAtual2 = new JogadaPosicao3(7, Jogador.Humano);
+
+            //act
+            var resultadoH1 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasDiagonais, jogadaAtual1, LinhaDeVerificacao.Diagonal_1);
+            var resultadoH2 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasDiagonais, jogadaAtual2, LinhaDeVerificacao.Diagonal_2);
+
+            //assert
+            Assert.True(resultadoH1);
+            Assert.True(resultadoH2);
+        }
+
+        [Fact]
+        [Trait("Verificacões:", "Diagonais")]
+        public void DeveRetornarFalsoNasDiagonais()
+        {
+            //arrange
+            var jogadaAtual1 = new JogadaPosicao9(8, Jogador.Maquina);
+            var jogadaAtual2 = new JogadaPosicao3(7, Jogador.Maquina);
+
+            //act
+            var resultadoH1 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasDiagonais, jogadaAtual1, LinhaDeVerificacao.Diagonal_1);
+            var resultadoH2 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasDiagonais, jogadaAtual2, LinhaDeVerificacao.Diagonal_2);
+
+            //assert
+            Assert.False(resultadoH1);
+            Assert.False(resultadoH2);
         }
     }
 }

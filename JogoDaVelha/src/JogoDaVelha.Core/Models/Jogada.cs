@@ -9,14 +9,14 @@ namespace JogoDaVelha.Core.Models
         public Jogador Jogador { get; set; }
         public string Rotulo { get; set; }
 
-        protected Jogada(int id, Jogador jogador, string rotulo)
+        protected Jogada(int id, Jogador jogador)
         {
             Id = id;
             Jogador = jogador;
-            Rotulo = rotulo.ToUpper();
+            Rotulo = jogador==Jogador.Humano ? "X" : "Y";            
         }
 
         public abstract bool Ganhou();
-        public abstract Jogada OndeJogar(); 
+        public abstract Jogada ProximaJogadaDaMaquina(); 
     }
 }

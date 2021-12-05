@@ -3,12 +3,12 @@ using System;
 
 namespace JogoDaVelha.Core.Models
 {
-    public class JogadaPosicao3 : Jogada
+    public class JogadaPosicao8 : Jogada
     {
-        public JogadaPosicao3(int id, Jogador jogador) 
+        public JogadaPosicao8(int id, Jogador jogador) 
             : base(id, jogador)
         {
-            Posicao = 3;
+            Posicao = 8;
         }
 
         public override bool Ganhou()

@@ -5,8 +5,8 @@ namespace JogoDaVelha.Core.Models
 {
     public class JogadaPosicao2 : Jogada
     {
-        public JogadaPosicao2(int id, Jogador jogador, string rotulo) 
-            : base(id, jogador, rotulo)
+        public JogadaPosicao2(int id, Jogador jogador) 
+            : base(id, jogador)
         {
             Posicao = 2;
         }
@@ -16,7 +16,7 @@ namespace JogoDaVelha.Core.Models
             throw new NotImplementedException();
         }
 
-        public override Jogada OndeJogar()
+        public override Jogada ProximaJogadaDaMaquina()
         {
             throw new NotImplementedException();
         }
