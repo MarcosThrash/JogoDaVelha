@@ -15,6 +15,7 @@ namespace JogoDaVelha.Core.Enums
         Vertical_2,
         Vertical_3,
         Diagonal_1,
-        Diagonal_2
+        Diagonal_2,
+        SemLinha
     }
 }

@@ -12,9 +12,9 @@ namespace Teste.JogoDaVelha.Core
         public void DeveRetornarVerdadeiroNasHorizontais()
         {
             //arrange
-            var jogadaAtualNaHorizontal1 = new JogadaPosicao3(5, Jogador.Humano);
-            var jogadaAtualNaHorizontal2 = new JogadaPosicao6(6, Jogador.Humano);
-            var jogadaAtualNaHorizontal3 = new JogadaPosicao9(9, Jogador.Maquina);
+            var jogadaAtualNaHorizontal1 = new JogadaPosicao3(5, Jogador.Humano, jogadasVerticais);
+            var jogadaAtualNaHorizontal2 = new JogadaPosicao6(6, Jogador.Humano, jogadasVerticais);
+            var jogadaAtualNaHorizontal3 = new JogadaPosicao9(9, Jogador.Maquina, jogadasVerticais);
 
             //act
             var resultadoH1 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasHorizontais, jogadaAtualNaHorizontal1, LinhaDeVerificacao.Horizontal_1);
@@ -32,9 +32,9 @@ namespace Teste.JogoDaVelha.Core
         public void DeveRetornarFalsoNasHorizontais()
         {
             //arrange
-            var jogadaAtualNaHorizontal1 = new JogadaPosicao3(5, Jogador.Maquina);
-            var jogadaAtualNaHorizontal2 = new JogadaPosicao6(6, Jogador.Maquina);
-            var jogadaAtualNaHorizontal3 = new JogadaPosicao9(9, Jogador.Humano);
+            var jogadaAtualNaHorizontal1 = new JogadaPosicao3(5, Jogador.Maquina, jogadasVerticais);
+            var jogadaAtualNaHorizontal2 = new JogadaPosicao6(6, Jogador.Maquina, jogadasVerticais);
+            var jogadaAtualNaHorizontal3 = new JogadaPosicao9(9, Jogador.Humano, jogadasVerticais);
 
             //act
             var resultadoH1 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasHorizontais, jogadaAtualNaHorizontal1, LinhaDeVerificacao.Horizontal_1);
@@ -52,9 +52,9 @@ namespace Teste.JogoDaVelha.Core
         public void DeveRetornarVerdadeiroNasVerticais()
         {
             //arrange
-            var jogadaAtualNaVertical1 = new JogadaPosicao7(8, Jogador.Maquina);
-            var jogadaAtualNaVertical2 = new JogadaPosicao8(7, Jogador.Humano);
-            var jogadaAtualNaVertical3 = new JogadaPosicao9(9, Jogador.Humano);
+            var jogadaAtualNaVertical1 = new JogadaPosicao7(8, Jogador.Maquina, jogadasVerticais);
+            var jogadaAtualNaVertical2 = new JogadaPosicao8(7, Jogador.Humano, jogadasVerticais);
+            var jogadaAtualNaVertical3 = new JogadaPosicao9(9, Jogador.Humano, jogadasVerticais);
 
             //act
             var resultadoH1 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasVerticais, jogadaAtualNaVertical1, LinhaDeVerificacao.Vertical_1);
@@ -72,9 +72,9 @@ namespace Teste.JogoDaVelha.Core
         public void DeveRetornarFalsoNasVerticais()
         {
             //arrange
-            var jogadaAtualNaVertical1 = new JogadaPosicao7(8, Jogador.Humano);
-            var jogadaAtualNaVertical2 = new JogadaPosicao8(7, Jogador.Maquina);
-            var jogadaAtualNaVertical3 = new JogadaPosicao9(9, Jogador.Maquina);
+            var jogadaAtualNaVertical1 = new JogadaPosicao7(8, Jogador.Humano, jogadasVerticais);
+            var jogadaAtualNaVertical2 = new JogadaPosicao8(7, Jogador.Maquina, jogadasVerticais);
+            var jogadaAtualNaVertical3 = new JogadaPosicao9(9, Jogador.Maquina, jogadasVerticais);
 
             //act
             var resultadoH1 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasVerticais, jogadaAtualNaVertical1, LinhaDeVerificacao.Vertical_1);
@@ -92,8 +92,8 @@ namespace Teste.JogoDaVelha.Core
         public void DeveRetornarVerdadeiroNasDiagonais()
         {
             //arrange
-            var jogadaAtual1 = new JogadaPosicao9(8, Jogador.Humano);
-            var jogadaAtual2 = new JogadaPosicao3(7, Jogador.Humano);
+            var jogadaAtual1 = new JogadaPosicao9(8, Jogador.Humano, jogadasVerticais);
+            var jogadaAtual2 = new JogadaPosicao3(7, Jogador.Humano, jogadasVerticais);
 
             //act
             var resultadoH1 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasDiagonais, jogadaAtual1, LinhaDeVerificacao.Diagonal_1);
@@ -109,8 +109,8 @@ namespace Teste.JogoDaVelha.Core
         public void DeveRetornarFalsoNasDiagonais()
         {
             //arrange
-            var jogadaAtual1 = new JogadaPosicao9(8, Jogador.Maquina);
-            var jogadaAtual2 = new JogadaPosicao3(7, Jogador.Maquina);
+            var jogadaAtual1 = new JogadaPosicao9(8, Jogador.Maquina, jogadasVerticais);
+            var jogadaAtual2 = new JogadaPosicao3(7, Jogador.Maquina, jogadasVerticais);
 
             //act
             var resultadoH1 = verificacoesSeGanhou.VerificaSeGanhouPorLinha(jogadasDiagonais, jogadaAtual1, LinhaDeVerificacao.Diagonal_1);

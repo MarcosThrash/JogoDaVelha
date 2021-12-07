@@ -28,29 +28,29 @@ namespace Teste.JogoDaVelha.Core.BaseTest
 
         private void AlimentarListasParaVerificacoesVerticais()
         {
-            AdicionarJogada(new JogadaPosicao1(1, Jogador.Maquina), jogadasVerticais);
-            AdicionarJogada(new JogadaPosicao4(3, Jogador.Maquina), jogadasVerticais);
-            AdicionarJogada(new JogadaPosicao2(2, Jogador.Humano), jogadasVerticais);
-            AdicionarJogada(new JogadaPosicao5(4, Jogador.Humano), jogadasVerticais);
-            AdicionarJogada(new JogadaPosicao3(6, Jogador.Humano), jogadasVerticais);
-            AdicionarJogada(new JogadaPosicao6(7, Jogador.Humano), jogadasVerticais);
+            AdicionarJogada(new JogadaPosicao1(1, Jogador.Maquina, jogadasVerticais), jogadasVerticais);
+            AdicionarJogada(new JogadaPosicao4(3, Jogador.Maquina, jogadasVerticais), jogadasVerticais);
+            AdicionarJogada(new JogadaPosicao2(2, Jogador.Humano, jogadasVerticais), jogadasVerticais);
+            AdicionarJogada(new JogadaPosicao5(4, Jogador.Humano, jogadasVerticais), jogadasVerticais);
+            AdicionarJogada(new JogadaPosicao3(6, Jogador.Humano, jogadasVerticais), jogadasVerticais);
+            AdicionarJogada(new JogadaPosicao6(7, Jogador.Humano, jogadasVerticais), jogadasVerticais);
         }
 
         private void AlimentarListasParaVerificacoesHorizontais()
         {
-            AdicionarJogada(new JogadaPosicao1(1, Jogador.Humano), jogadasHorizontais);
-            AdicionarJogada(new JogadaPosicao2(3, Jogador.Humano), jogadasHorizontais);
-            AdicionarJogada(new JogadaPosicao5(2, Jogador.Humano), jogadasHorizontais);
-            AdicionarJogada(new JogadaPosicao4(4, Jogador.Humano), jogadasHorizontais);
-            AdicionarJogada(new JogadaPosicao7(7, Jogador.Maquina), jogadasHorizontais);
-            AdicionarJogada(new JogadaPosicao8(5, Jogador.Maquina), jogadasHorizontais);            
+            AdicionarJogada(new JogadaPosicao1(1, Jogador.Humano, jogadasVerticais), jogadasHorizontais);
+            AdicionarJogada(new JogadaPosicao2(3, Jogador.Humano, jogadasVerticais), jogadasHorizontais);
+            AdicionarJogada(new JogadaPosicao5(2, Jogador.Humano, jogadasVerticais), jogadasHorizontais);
+            AdicionarJogada(new JogadaPosicao4(4, Jogador.Humano, jogadasVerticais), jogadasHorizontais);
+            AdicionarJogada(new JogadaPosicao7(7, Jogador.Maquina, jogadasVerticais), jogadasHorizontais);
+            AdicionarJogada(new JogadaPosicao8(5, Jogador.Maquina, jogadasVerticais), jogadasHorizontais);            
         }
 
         private void AlimentarListasParaVerificacoesDiagonais()
         {
-            AdicionarJogada(new JogadaPosicao1(1, Jogador.Humano), jogadasDiagonais);
-            AdicionarJogada(new JogadaPosicao5(3, Jogador.Humano), jogadasDiagonais);
-            AdicionarJogada(new JogadaPosicao7(5, Jogador.Humano), jogadasDiagonais);
+            AdicionarJogada(new JogadaPosicao1(1, Jogador.Humano, jogadasVerticais), jogadasDiagonais);
+            AdicionarJogada(new JogadaPosicao5(3, Jogador.Humano, jogadasVerticais), jogadasDiagonais);
+            AdicionarJogada(new JogadaPosicao7(5, Jogador.Humano, jogadasVerticais), jogadasDiagonais);
         }
 
         private void AdicionarJogada(Jogada jogada, List<Jogada> lista)
