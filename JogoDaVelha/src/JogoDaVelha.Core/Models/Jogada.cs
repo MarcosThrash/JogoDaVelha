@@ -10,7 +10,7 @@ namespace JogoDaVelha.Core.Models
         public int Posicao { get; set; }
         public Jogador Jogador { get; set; }
         public string Rotulo { get; set; }
-        protected List<Jogada> Jogadas { get; }
+        protected List<Jogada> JogadasAnteriores { get; }
         protected int NumeroDeJogadas { get; }
 
         protected Jogada(int id, Jogador jogador, List<Jogada> jogadas)
@@ -18,7 +18,7 @@ namespace JogoDaVelha.Core.Models
             IdSequencia = id;
             Jogador = jogador;
             Rotulo = jogador==Jogador.Humano ? "X" : "Y";
-            Jogadas = jogadas;
+            JogadasAnteriores = jogadas;
             NumeroDeJogadas = jogadas.Count;
         }
 
@@ -30,15 +30,15 @@ namespace JogoDaVelha.Core.Models
         {
             var situacaoAux = Jogador == Jogador.Humano ? Enums.SituacaoJogo.HumanoGanhou : Enums.SituacaoJogo.MaquinaGanhou;
             var linhaAux = LinhaDeVerificacao.SemLinha;
-            if (VerificaSeGanhouPorLinha(Jogadas, this, linha1))
+            if (VerificaSeGanhouPorLinha(JogadasAnteriores, this, linha1))
             {
                 linhaAux = LinhaDeVerificacao.Horizontal_1;
             }
-            else if (VerificaSeGanhouPorLinha(Jogadas, this, linha2))
+            else if (VerificaSeGanhouPorLinha(JogadasAnteriores, this, linha2))
             {
                 linhaAux = LinhaDeVerificacao.Vertical_1;
             }
-            else if (VerificaSeGanhouPorLinha(Jogadas, this, linha3))
+            else if (VerificaSeGanhouPorLinha(JogadasAnteriores, this, linha3))
             {
                 linhaAux = LinhaDeVerificacao.Diagonal_1;
             }
@@ -57,14 +57,49 @@ namespace JogoDaVelha.Core.Models
         {
             var situacaoAux = Jogador == Jogador.Humano ? Enums.SituacaoJogo.HumanoGanhou : Enums.SituacaoJogo.MaquinaGanhou;
             var linhaAux = LinhaDeVerificacao.SemLinha;
-            if (VerificaSeGanhouPorLinha(Jogadas, this, linha1))
+            if (VerificaSeGanhouPorLinha(JogadasAnteriores, this, linha1))
             {
                 linhaAux = LinhaDeVerificacao.Horizontal_1;
             }
-            else if (VerificaSeGanhouPorLinha(Jogadas, this, linha2))
+            else if (VerificaSeGanhouPorLinha(JogadasAnteriores, this, linha2))
             {
                 linhaAux = LinhaDeVerificacao.Vertical_1;
             }            
+            else if (NumeroDeJogadas == 8)
+            {
+                situacaoAux = SituacaoJogo.NinguemGanhou;
+            }
+            else
+            {
+                situacaoAux = SituacaoJogo.Continua;
+            }
+            return new JogadaResult(situacaoAux, linhaAux);
+        }
+
+        /// <summary>
+        /// Verificação em Quatro Linhas exlusiva da Posição 5
+        /// </summary>
+        /// <returns></returns>
+        protected JogadaResult SituacaoPosJogadaQuatroLinhasDeVerificacao()
+        {
+            var situacaoAux = Jogador == Jogador.Humano ? Enums.SituacaoJogo.HumanoGanhou : Enums.SituacaoJogo.MaquinaGanhou;
+            var linhaAux = LinhaDeVerificacao.SemLinha;
+            if (VerificaSeGanhouPorLinha(JogadasAnteriores, this, LinhaDeVerificacao.Horizontal_2))
+            {
+                linhaAux = LinhaDeVerificacao.Horizontal_2;
+            }
+            else if (VerificaSeGanhouPorLinha(JogadasAnteriores, this, LinhaDeVerificacao.Vertical_2))
+            {
+                linhaAux = LinhaDeVerificacao.Vertical_2;
+            }
+            else if (VerificaSeGanhouPorLinha(JogadasAnteriores, this, LinhaDeVerificacao.Diagonal_1))
+            {
+                linhaAux = LinhaDeVerificacao.Diagonal_1;
+            }
+            else if (VerificaSeGanhouPorLinha(JogadasAnteriores, this, LinhaDeVerificacao.Diagonal_2))
+            {
+                linhaAux = LinhaDeVerificacao.Diagonal_2;
+            }
             else if (NumeroDeJogadas == 8)
             {
                 situacaoAux = SituacaoJogo.NinguemGanhou;

@@ -12,7 +12,7 @@ namespace JogoDaVelha.Core.Models
         public SituacaoJogo SituacaoJogo { get; }
         public LinhaDeVerificacao LinhaVitoria { get; }
         
-        public JogadaResult(SituacaoJogo situacaoJogo, LinhaDeVerificacao linhaVitoria)
+        internal JogadaResult(SituacaoJogo situacaoJogo, LinhaDeVerificacao linhaVitoria)
         {
             SituacaoJogo = situacaoJogo;
             LinhaVitoria = linhaVitoria;

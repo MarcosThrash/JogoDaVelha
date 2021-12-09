@@ -37,7 +37,7 @@ namespace Teste.JogoDaVelha.Core
 
             //act
             var resultadoP1 = jogadaP1.SituacaoPosJogada();
-
+            
             //assert
             Assert.Equal(SituacaoJogo.MaquinaGanhou, resultadoP1.SituacaoJogo);
             Assert.Equal(LinhaDeVerificacao.Vertical_1, resultadoP1.LinhaVitoria);

@@ -12,10 +12,9 @@ namespace JogoDaVelha.Core.Models
             Posicao = 7;
         }
 
-        public override JogadaResult SituacaoPosJogada()
-        {
-            throw new NotImplementedException();
-        }
+        public override JogadaResult SituacaoPosJogada() =>
+            SituacaoPosJogadaTresLinhasDeVerificacao(LinhaDeVerificacao.Horizontal_3,
+                LinhaDeVerificacao.Vertical_1, LinhaDeVerificacao.Diagonal_2);
 
         public override Jogada ProximaJogadaDaMaquina()
         {
