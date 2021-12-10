@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JogoDaVelha.Core", "src\JogoDaVelha.Core\JogoDaVelha.Core.csproj", "{51DDF751-DE04-43E8-9845-73A4CF676D1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teste.JogoDaVelha.Core", "testes\Teste.JogoDaVelha.Core\Teste.JogoDaVelha.Core.csproj", "{80CCCD61-E057-4CF8-A2FD-4EB578739CDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teste.JogoDaVelha.Core", "testes\Teste.JogoDaVelha.Core\Teste.JogoDaVelha.Core.csproj", "{80CCCD61-E057-4CF8-A2FD-4EB578739CDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

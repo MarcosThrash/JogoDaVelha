@@ -50,7 +50,7 @@ namespace JogoDaVelha.Core.Models
             {
                 situacaoAux = SituacaoJogo.Continua;
             }
-            return new JogadaResult(situacaoAux, linhaAux);
+            return new JogadaResult(situacaoAux, linhaAux, this);
         }
 
         protected JogadaResult SituacaoPosJogadaDuasLinhasDeVerificacao(LinhaDeVerificacao linha1, LinhaDeVerificacao linha2)
@@ -73,7 +73,7 @@ namespace JogoDaVelha.Core.Models
             {
                 situacaoAux = SituacaoJogo.Continua;
             }
-            return new JogadaResult(situacaoAux, linhaAux);
+            return new JogadaResult(situacaoAux, linhaAux, this);
         }
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace JogoDaVelha.Core.Models
             {
                 situacaoAux = SituacaoJogo.Continua;
             }
-            return new JogadaResult(situacaoAux, linhaAux);
+            return new JogadaResult(situacaoAux, linhaAux, this);
         }
     }
 }

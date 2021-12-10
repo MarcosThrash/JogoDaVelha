@@ -11,11 +11,14 @@ namespace JogoDaVelha.Core.Models
     {
         public SituacaoJogo SituacaoJogo { get; }
         public LinhaDeVerificacao LinhaVitoria { get; }
-        
-        internal JogadaResult(SituacaoJogo situacaoJogo, LinhaDeVerificacao linhaVitoria)
+        public Jogada JogadaAtual { get; }
+
+        internal JogadaResult(SituacaoJogo situacaoJogo, LinhaDeVerificacao linhaVitoria,
+            Jogada jogadaAtual)
         {
             SituacaoJogo = situacaoJogo;
             LinhaVitoria = linhaVitoria;
+            JogadaAtual = jogadaAtual;
         }
     }
 }
